@@ -13,6 +13,8 @@ class FiltersScreen extends StatefulWidget {
 
 class _FilterScreenState extends State<FiltersScreen> {
   var _glutenFreeFilterSet = false;
+  var _vegetarianFreeFilterSet = false;
+  var _lactoseFreeFilterSet = false;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +53,55 @@ class _FilterScreenState extends State<FiltersScreen> {
           ),
           activeColor: Theme.of(context).colorScheme.tertiary,
           contentPadding: const EdgeInsets.only(left: 30, right: 20),
-        )
+        ),
+        SwitchListTile(
+          value: _vegetarianFreeFilterSet,
+          onChanged: (isChecked) {
+            setState(() {
+              _vegetarianFreeFilterSet = isChecked;
+            });
+          },
+          title: Text(
+            'Vegan-free',
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge!
+                .copyWith(color: Theme.of(context).colorScheme.onBackground),
+          ),
+          subtitle: Text(
+            'Only include vegan free meal!',
+            style: Theme.of(context)
+                .textTheme
+                .labelMedium!
+                .copyWith(color: Theme.of(context).colorScheme.onBackground),
+          ),
+          activeColor: Theme.of(context).colorScheme.tertiary,
+          contentPadding: const EdgeInsets.only(left: 30, right: 20),
+        ),
+        SwitchListTile(
+          value: _lactoseFreeFilterSet,
+          onChanged: (isChecked) {
+            setState(() {
+              _lactoseFreeFilterSet = isChecked;
+            });
+          },
+          title: Text(
+            'Lactose-free',
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge!
+                .copyWith(color: Theme.of(context).colorScheme.onBackground),
+          ),
+          subtitle: Text(
+            'Only include lactose free meal!',
+            style: Theme.of(context)
+                .textTheme
+                .labelMedium!
+                .copyWith(color: Theme.of(context).colorScheme.onBackground),
+          ),
+          activeColor: Theme.of(context).colorScheme.tertiary,
+          contentPadding: const EdgeInsets.only(left: 30, right: 20),
+        ),
       ]),
     );
   }
